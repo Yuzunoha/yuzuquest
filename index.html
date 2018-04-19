@@ -1,4 +1,72 @@
-<script>
-console.log("hello! github pages!");
-</script>
-"hello! github pages!";
+<html>
+
+<head>
+  <title>LocalStorage 静的リソースだけでアプリケーションを作るための記憶領域テスト</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+  <script>
+    // localStorageからアクセス回数を取得
+    function getTotalCount() {
+      var count = parseInt(localStorage.getItem('totalAccess'));
+      if (isNaN(count)) {
+        count = 0;
+      }
+      return count;
+    }
+
+    // sessionStorageからアクセス回数を取得
+    function getSessionCount() {
+      var count = parseInt(sessionStorage.getItem('sessionAccess'));
+      if (isNaN(count)) {
+        count = 0;
+      }
+      return count;
+    }
+
+    // localStorageにアクセス回数を保存
+    function setTotalCount(count) {
+      localStorage.setItem('totalAccess', count.toString(10));
+    }
+
+    // sessionStorageにアクセス回数を保存
+    function setSessionCount(count) {
+      sessionStorage.setItem('sessionAccess', count.toString(10));
+    }
+
+    // 初期表示を行う
+    $(document).ready(function() {
+      var totalCount = getTotalCount();
+      var sessionCount = getSessionCount();
+      totalCount++;
+      sessionCount++;
+      setTotalCount(totalCount);
+      setSessionCount(sessionCount);
+      $('#total').text(totalCount);
+      $('#session').text(sessionCount);
+    });
+
+    // リセットボタンが押された時にアクセス回数を0にする
+    $(document).on('click', '#resetButton', function() {
+      setTotalCount(0);
+      setSessionCount(0);
+      $('#total').text(0);
+      $('#session').text(0);
+    });
+
+  </script>
+</head>
+
+<body>
+  <div>
+    <p>
+      今回のアクセスは<span id="total"></span>回目です。
+    </p>
+    <p>
+      ブラウザを開いてからは<span id="session"></span>回目です。
+    </p>
+  </div>
+  <a id="resetButton" class="btn" style="background-color: aquamarine">リセット</a>
+</body>
+
+</html>
