@@ -1,0 +1,25 @@
+<html>
+
+<head>
+  <title>LocalStorage 静的リソースだけでアプリケーションを作るための記憶領域テスト</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+  <script>
+  var _0x20fc=['text','#session','click','#total','getItem','totalAccess','sessionAccess','toString','setItem','ready'];(function(_0x25dd51,_0x81c73){var _0x2ad75b=function(_0x2dd2c6){while(--_0x2dd2c6){_0x25dd51['push'](_0x25dd51['shift']());}};_0x2ad75b(++_0x81c73);}(_0x20fc,0x1d0));var _0x306b=function(_0x48e669,_0xf9c5d7){_0x48e669=_0x48e669-0x0;var _0x4c9988=_0x20fc[_0x48e669];return _0x4c9988;};function getTotalCount(){var _0x567a57=parseInt(localStorage[_0x306b('0x0')](_0x306b('0x1')));if(isNaN(_0x567a57)){_0x567a57=0x0;}return _0x567a57;}function getSessionCount(){var _0x21590b=parseInt(sessionStorage[_0x306b('0x0')](_0x306b('0x2')));if(isNaN(_0x21590b)){_0x21590b=0x0;}return _0x21590b;}function setTotalCount(_0x36e332){localStorage['setItem'](_0x306b('0x1'),_0x36e332[_0x306b('0x3')](0xa));}function setSessionCount(_0x488927){sessionStorage[_0x306b('0x4')](_0x306b('0x2'),_0x488927[_0x306b('0x3')](0xa));}$(document)[_0x306b('0x5')](function(){var _0x2de8eb=getTotalCount();var _0x1b13a0=getSessionCount();_0x2de8eb++;_0x1b13a0++;setTotalCount(_0x2de8eb);setSessionCount(_0x1b13a0);$('#total')[_0x306b('0x6')](_0x2de8eb);$(_0x306b('0x7'))[_0x306b('0x6')](_0x1b13a0);});$(document)['on'](_0x306b('0x8'),'#resetButton',function(){setTotalCount(0x0);setSessionCount(0x0);$(_0x306b('0x9'))[_0x306b('0x6')](0x0);$(_0x306b('0x7'))['text'](0x0);});
+  </script>
+</head>
+
+<body>
+  <div>
+    <p>
+      今回のアクセスは<span id="total"></span>回目です。
+    </p>
+    <p>
+      ブラウザを開いてからは<span id="session"></span>回目です。
+    </p>
+  </div>
+  <a id="resetButton" class="btn" style="background-color: aquamarine">リセット</a>
+</body>
+
+</html>
